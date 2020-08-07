@@ -8,7 +8,7 @@ URL = 'https://www.amazon.ca/Cancelling-Wireless-Bluetooth-Headphones-Soapstone/
 desiredPrice = 500 #change according to product
 
 headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
-testss = "testing"
+
 
 
 def check_price():
@@ -23,8 +23,8 @@ def check_price():
     dataBase(converted_price, title,runDate)
 
     if (converted_price < desiredPrice):
-        #send_mail()
-        print("sent emaillllll --- remove # from above")
+        send_mail()
+
     else:
         print("Come back another time")
 
@@ -43,14 +43,14 @@ def send_mail():
     server.starttls()
     server.ehlo
 
-    server.login('preetmakani1@gmail.com', 'otwngevwikxxgkdz')
+    server.login('email', 'code')
     subject = 'Amazon Price Fell Down!'
     body = ("Check the amazon link: " + URL)
     msg = f"Subject: {subject}\n\n{body}"
 
     server.sendmail(
-        'preetmakani1@gmail.com',
-        'preetmakani1@gmail.com',
+        'email',
+        'email',
         msg
     )
 
